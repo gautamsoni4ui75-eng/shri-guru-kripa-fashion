@@ -3,67 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shri Gurukripa Fashion</title>
+    <title>Shri Gurukripa Fashion - Myntra Style Store</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 font-sans">
 
-    <!-- Header / Opening Section -->
+    <!-- Top Announcement Bar -->
+    <div class="bg-rose-600 text-white text-xs py-2 text-center font-medium tracking-wide">
+        ✨ Mega Festive Sale: Free Delivery on Orders Above ₹999 | 100% Original Garments
+    </div>
+
+    <!-- Main Header -->
     <header class="bg-white shadow-sm border-b sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col items-center justify-center text-center">
-            <span class="text-sm font-bold text-orange-600 tracking-wider mb-1">🙏 नमस्कार | Welcome</span>
-            <h1 class="text-3xl font-extrabold tracking-tight text-gray-900">Shri Gurukripa Fashion</h1>
-            <p class="text-sm text-gray-500 mt-1">Discover the latest trends in exclusive garments & fashion</p>
+        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-rose-600 text-white font-black text-xl px-3 py-2 rounded-lg shadow">SGF</div>
+                <div>
+                    <h1 class="text-2xl font-extrabold tracking-tight text-gray-900">Shri Gurukripa Fashion</h1>
+                    <p class="text-xs text-gray-500 font-medium">Exclusive Readymade Garments & Fashion Store</p>
+                </div>
+            </div>
+            <div class="mt-3 sm:mt-0 flex items-center space-x-3">
+                <span class="bg-rose-50 border border-rose-200 px-4 py-2 rounded-full text-sm font-bold text-rose-700 shadow-sm">
+                    🛒 Cart Items: <span id="cart-count">0</span>
+                </span>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Banner -->
-    <div class="bg-gradient-to-r from-pink-600 to-rose-500 text-white py-12 px-4 text-center">
-        <h2 class="text-3xl md:text-4xl font-extrabold mb-2">New Festive Collection 2026</h2>
-        <p class="text-base md:text-lg opacity-95">Elegance and style designed just for you.</p>
-    </div>
-
-    <!-- Myntra Style Product Grid -->
-    <main class="max-w-7xl mx-auto px-4 py-10">
-        <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b pb-2">Trending Products</h3>
+    <!-- Main Store Container -->
+    <main class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
         
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            <!-- Product 1 -->
-            <div class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden border">
-                <div class="h-64 bg-gray-200 flex items-center justify-center text-gray-500 font-medium">
-                    [ Coat Set Image ]
-                </div>
-                <div class="p-4">
-                    <span class="text-xs text-rose-600 font-bold uppercase tracking-wide">Girls Wear</span>
-                    <h4 class="text-lg font-bold text-gray-900 mt-1">Designer Coat Set</h4>
-                    <div class="flex items-center justify-between mt-2">
-                        <span class="text-sm text-gray-600">Size: <strong class="text-gray-800">L</strong></span>
-                        <span class="text-lg font-bold text-gray-900">₹1,999</span>
-                    </div>
-                    <button class="w-full mt-4 bg-gray-900 text-white py-2 rounded-md hover:bg-gray-800 transition text-sm font-medium">
-                        Add to Cart
-                    </button>
-                </div>
+        <!-- Products Catalog (2 Columns) -->
+        <div class="lg:col-span-2">
+            <div class="flex items-center justify-between mb-6 border-b pb-2">
+                <h2 class="text-2xl font-bold text-gray-800">Trending Collection 2026</h2>
+                <span class="text-xs text-gray-500 font-medium">Showing latest garments</span>
             </div>
 
-            <!-- Product 2 -->
-            <div class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden border">
-                <div class="h-64 bg-gray-200 flex items-center justify-center text-gray-500 font-medium">
-                    [ Kurti Image ]
-                </div>
-                <div class="p-4">
-                    <span class="text-xs text-rose-600 font-bold uppercase tracking-wide">Womens Wear</span>
-                    <h4 class="text-lg font-bold text-gray-900 mt-1">Designer Kurti</h4>
-                    <div class="flex items-center justify-between mt-2">
-                        <span class="text-sm text-gray-600">Size: <strong class="text-gray-800">M</strong></span>
-                        <span class="text-lg font-bold text-gray-900">₹1,299</span>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                
+                <!-- Product 1 -->
+                <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition overflow-hidden border p-4 flex flex-col justify-between">
+                    <div>
+                        <div class="h-52 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400 font-medium mb-3 border">
+                            [ Designer Coat Set ]
+                        </div>
+                        <span class="text-xs text-rose-600 font-bold uppercase tracking-wider">Girls Wear</span>
+                        <h3 class="text-lg font-bold text-gray-900 mt-1">Exclusive Designer Coat Set</h3>
+                        <div class="mt-2 flex items-center space-x-2">
+                            <span class="text-xs text-gray-500 font-medium">Size:</span>
+                            <span class="px-2 py-0.5 bg-gray-100 rounded text-xs font-bold text-gray-800">S</span>
+                            <span class="px-2 py-0.5 bg-gray-100 rounded text-xs font-bold text-gray-800">M</span>
+                            <span class="px-2 py-0.5 bg-rose-50 border border-rose-300 rounded text-xs font-bold text-rose-700">L</span>
+                        </div>
+                        <p class="text-base font-extrabold text-gray-900 mt-3">₹1,999 <span class="text-xs line-through text-gray-400 font-normal">₹2,999</span></p>
                     </div>
-                    <button class="w-full mt-4 bg-gray-900 text-white py-2 rounded-md hover:bg-gray-800 transition text-sm font-medium">
-                        Add to Cart
+                    <button onclick="addItem('Designer Coat Set (L)', 1999)" class="w-full mt-4 bg-gray-900 text-white py-2.5 rounded-lg hover:bg-gray-800 transition text-sm font-semibold shadow">
+                        Add to Bag
                     </button>
                 </div>
+
+                <!-- Product 2 -->
+                <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition overflow-hidden border p-4 flex flex-col justify-between">
+                    <div>
+                        <div class="h-52 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400 font-medium mb-3 border">
+                            [ Designer Kurti ]
+                        </div>
+                        <span class="text-xs text-rose-600 font-bold uppercase tracking-wider">Womens Wear</span>
+                        <h3 class="text-lg font-bold text-gray-900 mt-1">Designer Party Wear Kurti</h3>
+                        <div class="mt-2 flex items-center space-x-2">
+                            <span class="text-xs text-gray-500 font-medium">Size:</span>
+                            <span class="px-2 py-0.5 bg-rose-50 border border-rose-300 rounded text-xs font-bold text-rose-700">M</span>
+                            <span class="px-2 py-0.5 bg-gray-100 rounded text-xs font-bold text-gray-800">L</span>
+                            <span class="px-2 py-0.5 bg-gray-100 rounded text-xs font-bold text-gray-800">XL</span>
+                        </div>
+                        <p class="text-base font-extrabold text-gray-900 mt-3">₹1,299 <span class="text-xs line-through text-gray-400 font-normal">₹1,999</span></p>
+                    </div>
+                    <button onclick="addItem('Designer Kurti (M)', 1299)" class="w-full mt-4 bg-gray-900 text-white py-2.5 rounded-lg hover:bg-gray-800 transition text-sm font-semibold shadow">
+                        Add to Bag
+                    </button>
+                </div>
+
             </div>
         </div>
+
+        <!-- Live Calculation & Checkout Panel (1 Column) -->
+        <div class="bg-white rounded-xl shadow-sm border p-6 h-fit sticky top-24">
+            <h3 class="text-xl font-bold text-gray-900 mb-4 border-b pb-2">Order Summary</h3>
+            
+            <div id="cart-list" class="space-y-3 mb-4 text-sm text-gray-600 max-h-48 overflow-y-auto">
+                <p class="italic text-gray-400">Your bag is empty. Select items to calculate.</p>
+            </div>
+
+            <div class="border-t pt-4 space-y-2 text-sm">
+                <div class="flex justify-between">
+                    <span class="text-gray-600">Bag Total:</span>
+                    <span id="subtotal-val" class="font-bold text-gray-900">₹0</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-600">Estimated Delivery:</span>
+                    <span id="delivery-val" class="font-bold text-gray-900">₹0</span>
+                </div>
+                <div class="flex justify-between text-base border-t pt-2 font-extrabold text-rose-600">
+                    <span>Order Total:</span>
+                    <span id="total-val">₹0</span>
+                </div>
+            </div>
+
+            <!-- Customer Shipping Information Form -->
+            <div class="mt-6 border-t pt-4">
+                <h4 class="font-bold text-gray-800 mb-3 text-sm">Customer Shipping Details</h4>
+                <div class="space-y-3">
+                    <input type="text" id="c-name" placeholder="Full Name" class="w-full px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-rose-500">
+                    <input type="text" id="c-phone" placeholder="Mobile Number" class="w-full px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-rose-500">
+                    <textarea id="c-address" placeholder="Delivery Address with Pincode" rows="2" class="w-full px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-rose-500"></textarea>
+                    
+                    <button onclick="processCheckout()" class="w-full bg-rose-600 text-white py-3 rounded-lg hover:bg-rose-700 transition font-bold text-sm shadow-md">
+                        Place Order Securely
+                    </button>
+                </div>
+            </div>
+
+            <!-- Success Confirmation Banner -->
+            <div id="order-success" class="hidden mt-4 p-4 bg-green-50 border border-green-200 text-green-800 rounded-lg text-sm text-center font-medium shadow-sm">
+                🎉 Order Placed Successfully! Thank you for shopping with Shri Gurukripa Fashion. We will contact you shortly.
+            </div>
+        </div>
+
     </main>
 
     <!-- Footer -->
@@ -71,5 +138,59 @@
         &copy; 2026 Shri Gurukripa Fashion. All rights reserved.
     </footer>
 
+    <!-- Interactive Script -->
+    <script>
+        let shoppingBag = [];
+
+        function addItem(name, price) {
+            shoppingBag.push({name, price});
+            renderCart();
+        }
+
+        function renderCart() {
+            document.getElementById('cart-count').innerText = shoppingBag.length;
+            let container = document.getElementById('cart-list');
+            
+            if(shoppingBag.length === 0) {
+                container.innerHTML = '<p class="italic text-gray-400">Your bag is empty. Select items to calculate.</p>';
+                document.getElementById('subtotal-val').innerText = '₹0';
+                document.getElementById('delivery-val').innerText = '₹0';
+                document.getElementById('total-val').innerText = '₹0';
+                return;
+            }
+
+            let htmlStr = '';
+            let subSum = 0;
+            shoppingBag.forEach((prod) => {
+                subSum += prod.price;
+                htmlStr += `<div class="flex justify-between items-center bg-gray-50 p-2 rounded text-sm"><span>${prod.name}</span><span class="font-semibold">₹${prod.price}</span></div>`;
+            });
+
+            container.innerHTML = htmlStr;
+            let deliveryFee = subSum > 0 ? 99 : 0;
+            let finalSum = subSum + deliveryFee;
+
+            document.getElementById('subtotal-val').innerText = '₹' + subSum;
+            document.getElementById('delivery-val').innerText = '₹' + deliveryFee;
+            document.getElementById('total-val').innerText = '₹' + finalSum;
+        }
+
+        function processCheckout() {
+            let clientName = document.getElementById('c-name').value;
+            let clientPhone = document.getElementById('c-phone').value;
+            let clientAddress = document.getElementById('c-address').value;
+
+            if(shoppingBag.length === 0) {
+                alert('Please add at least one product to your bag!');
+                return;
+            }
+            if(!clientName || !clientPhone || !clientAddress) {
+                alert('Please fill in all shipping details!');
+                return;
+            }
+
+            document.getElementById('order-success').classList.remove('hidden');
+        }
+    </script>
 </body>
 </html>
