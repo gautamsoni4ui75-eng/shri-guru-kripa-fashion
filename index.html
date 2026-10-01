@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shri Gurukripa Fashion - Online Store</title>
+    <title>Shri Gurukripa Fashion - Live Store</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 font-sans">
 
     <!-- Top Announcement Bar -->
     <div class="bg-rose-600 text-white text-xs py-2 text-center font-medium tracking-wide">
-        ✨ Welcome to Shri Gurukripa Fashion | Premium Quality Readymade Garments
+        ✨ Shri Gurukripa Fashion | Direct Google Sheet Live Store
     </div>
 
     <!-- Main Header -->
@@ -20,7 +20,7 @@
                 <div class="bg-rose-600 text-white font-black text-xl px-3 py-2 rounded-lg shadow">SGF</div>
                 <div>
                     <h1 class="text-2xl font-extrabold tracking-tight text-gray-900">Shri Gurukripa Fashion</h1>
-                    <p class="text-xs text-gray-500 font-medium">Exclusive Readymade Garments Store</p>
+                    <p class="text-xs text-gray-500 font-medium">Live Products Managed via Google Sheet</p>
                 </div>
             </div>
             <div class="mt-3 sm:mt-0 flex items-center space-x-3">
@@ -34,61 +34,20 @@
     <!-- Main Store Container -->
     <main class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
         
-        <!-- Products Catalog (2 Columns) -->
+        <!-- Products Catalog Loaded from Google Sheet -->
         <div class="lg:col-span-2">
             <div class="flex items-center justify-between mb-6 border-b pb-2">
-                <h2 class="text-2xl font-bold text-gray-800">Featured Collection</h2>
-                <span class="text-xs text-gray-500 font-medium">Latest Trends</span>
+                <h2 class="text-2xl font-bold text-gray-800">Our Collection (Live from Sheet)</h2>
+                <span id="loading-text" class="text-xs text-rose-600 font-bold animate-pulse">Loading products...</span>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                
-                <!-- Product 1 -->
-                <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition overflow-hidden border p-4 flex flex-col justify-between">
-                    <div>
-                        <div class="h-48 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400 font-medium mb-3 border">
-                            [ Coat Set Image ]
-                        </div>
-                        <span class="text-xs text-rose-600 font-bold uppercase tracking-wider">Girls Wear</span>
-                        <h3 class="text-lg font-bold text-gray-900 mt-1">Designer Coat Set</h3>
-                        <div class="mt-2 flex items-center space-x-2">
-                            <span class="text-xs text-gray-500 font-medium">Sizes:</span>
-                            <span class="px-2 py-0.5 bg-gray-100 rounded text-xs font-bold text-gray-800">S</span>
-                            <span class="px-2 py-0.5 bg-gray-100 rounded text-xs font-bold text-gray-800">M</span>
-                            <span class="px-2 py-0.5 bg-rose-50 border border-rose-300 rounded text-xs font-bold text-rose-700">L</span>
-                        </div>
-                        <p class="text-base font-extrabold text-gray-900 mt-3">₹1,999</p>
-                    </div>
-                    <button onclick="addItem('Designer Coat Set (Size: L)', 1999)" class="w-full mt-4 bg-gray-900 text-white py-2.5 rounded-lg hover:bg-gray-800 transition text-sm font-semibold shadow">
-                        Add to Bag
-                    </button>
-                </div>
-
-                <!-- Product 2 -->
-                <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition overflow-hidden border p-4 flex flex-col justify-between">
-                    <div>
-                        <div class="h-48 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400 font-medium mb-3 border">
-                            [ Kurti Image ]
-                        </div>
-                        <span class="text-xs text-rose-600 font-bold uppercase tracking-wider">Womens Wear</span>
-                        <h3 class="text-lg font-bold text-gray-900 mt-1">Designer Party Kurti</h3>
-                        <div class="mt-2 flex items-center space-x-2">
-                            <span class="text-xs text-gray-500 font-medium">Sizes:</span>
-                            <span class="px-2 py-0.5 bg-rose-50 border border-rose-300 rounded text-xs font-bold text-rose-700">M</span>
-                            <span class="px-2 py-0.5 bg-gray-100 rounded text-xs font-bold text-gray-800">L</span>
-                            <span class="px-2 py-0.5 bg-gray-100 rounded text-xs font-bold text-gray-800">XL</span>
-                        </div>
-                        <p class="text-base font-extrabold text-gray-900 mt-3">₹1,299</p>
-                    </div>
-                    <button onclick="addItem('Designer Party Kurti (Size: M)', 1299)" class="w-full mt-4 bg-gray-900 text-white py-2.5 rounded-lg hover:bg-gray-800 transition text-sm font-semibold shadow">
-                        Add to Bag
-                    </button>
-                </div>
-
+            <!-- Dynamic Products Grid -->
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <!-- Products will load here automatically -->
             </div>
         </div>
 
-        <!-- Order Summary & Checkout Panel (1 Column) -->
+        <!-- Order Summary & Checkout Panel -->
         <div class="bg-white rounded-xl shadow-sm border p-6 h-fit sticky top-24">
             <h3 class="text-xl font-bold text-gray-900 mb-4 border-b pb-2">Order Summary</h3>
             
@@ -111,7 +70,7 @@
                 </div>
             </div>
 
-            <!-- Customer Shipping Information Form (Direct on Website) -->
+            <!-- Customer Shipping Information Form -->
             <div class="mt-6 border-t pt-4">
                 <h4 class="font-bold text-gray-800 mb-3 text-sm">Shipping Information</h4>
                 <div class="space-y-3">
@@ -125,10 +84,10 @@
                 </div>
             </div>
 
-            <!-- Direct Success Confirmation Box on Website -->
+            <!-- Success Confirmation Box -->
             <div id="order-success" class="hidden mt-4 p-4 bg-green-50 border border-green-200 text-green-800 rounded-lg text-sm text-center font-medium shadow-sm">
                 🎉 <strong class="block text-base mb-1">Order Placed Successfully!</strong>
-                Thank you! Your order has been registered securely on Shri Gurukripa Fashion. We will dispatch your items soon.
+                Thank you! Your order has been registered securely on Shri Gurukripa Fashion.
             </div>
         </div>
 
@@ -139,12 +98,52 @@
         &copy; 2026 Shri Gurukripa Fashion. All rights reserved.
     </footer>
 
-    <!-- Interactive Script -->
+    <!-- Script to Fetch Data from Google Sheet and Handle Cart -->
     <script>
+        const sheetApiUrl = "https://script.google.com/macros/s/AKfycbxdGchJKMaNG8z3nLGOP8Su17ieZR_vmv4jiUOwGzJqFsd2pkLHzlClzsca5VQrTIZ5IA/exec";
         let shoppingBag = [];
+        let fetchedProducts = [];
 
-        function addItem(name, price) {
-            shoppingBag.push({name, price});
+        async function loadProducts() {
+            try {
+                let response = await fetch(sheetApiUrl);
+                let data = await response.json();
+                fetchedProducts = data;
+                
+                let gridHtml = '';
+                if(data.length === 0) {
+                    gridHtml = '<p class="text-gray-500 col-span-2">No products found in Google Sheet.</p>';
+                } else {
+                    data.forEach((item, index) => {
+                        gridHtml += `
+                            <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition overflow-hidden border p-4 flex flex-col justify-between">
+                                <div>
+                                    <div class="h-48 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400 font-medium mb-3 border">
+                                        [ ${item.name || 'Product'} ]
+                                    </div>
+                                    <span class="text-xs text-rose-600 font-bold uppercase tracking-wider">${item.category || 'Garments'}</span>
+                                    <h3 class="text-lg font-bold text-gray-900 mt-1">${item.name}</h3>
+                                    <p class="text-xs text-gray-500 mt-1">Size: ${item.size || 'Standard'}</p>
+                                    <p class="text-base font-extrabold text-gray-900 mt-3">₹${item.price}</p>
+                                </div>
+                                <button onclick="addItem(${index})" class="w-full mt-4 bg-gray-900 text-white py-2.5 rounded-lg hover:bg-gray-800 transition text-sm font-semibold shadow">
+                                    Add to Bag
+                                </button>
+                            </div>
+                        `;
+                    });
+                }
+                document.getElementById('products-grid').innerHTML = gridHtml;
+                document.getElementById('loading-text').innerText = 'Live from Google Sheet ✅';
+            } catch (error) {
+                document.getElementById('loading-text').innerText = 'Error loading sheet data';
+                document.getElementById('products-grid').innerHTML = '<p class="text-red-500 col-span-2">Could not connect to Google Sheet. Please check deployment access.</p>';
+            }
+        }
+
+        function addItem(index) {
+            let prod = fetchedProducts[index];
+            shoppingBag.push({name: prod.name, price: Number(prod.price), size: prod.size});
             renderCart();
         }
 
@@ -164,7 +163,7 @@
             let subSum = 0;
             shoppingBag.forEach((prod) => {
                 subSum += prod.price;
-                htmlStr += `<div class="flex justify-between items-center bg-gray-50 p-2 rounded text-sm"><span>${prod.name}</span><span class="font-semibold">₹${prod.price}</span></div>`;
+                htmlStr += `<div class="flex justify-between items-center bg-gray-50 p-2 rounded text-sm"><span>${prod.name} (${prod.size || ''})</span><span class="font-semibold">₹${prod.price}</span></div>`;
             });
 
             container.innerHTML = htmlStr;
@@ -192,6 +191,9 @@
 
             document.getElementById('order-success').classList.remove('hidden');
         }
+
+        // Load products on page startup
+        loadProducts();
     </script>
 </body>
 </html>
