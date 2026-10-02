@@ -3,333 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shri Guru Kripa Fashion - Professional Store</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Shri Gurukripa Fashion Hub - Ladies Collection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        /* Top Header */
+        header {
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+        header p {
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        /* Navigation Bar */
+        nav {
+            background-color: #222;
+            display: flex;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .nav-links li {
+            position: relative;
+        }
+        .nav-links li a {
+            display: block;
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+        .nav-links li a:hover {
+            background-color: #ff416c;
+        }
+        /* Dropdown Mega Menu */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: #fff;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            min-width: 250px;
+            z-index: 1;
+            list-style: none;
+        }
+        .dropdown-menu li a {
+            color: #333;
+            padding: 12px 16px;
+            border-bottom: 1px solid #eee;
+            font-weight: normal;
+        }
+        .dropdown-menu li a:hover {
+            background-color: #f1f1f1;
+            color: #ff416c;
+        }
+        .nav-links li:hover .dropdown-menu {
+            display: block;
+        }
+        /* Main Content Section */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        .banner {
+            background: #fff;
+            padding: 40px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        .banner h2 {
+            color: #ff416c;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .banner p {
+            color: #666;
+            line-height: 1.6;
+        }
+    </style>
 </head>
-<body class="bg-gray-50 font-sans text-gray-800">
+<body>
 
-    <!-- Top Announcement Bar -->
-    <div class="bg-rose-600 text-white text-xs py-2 text-center font-bold tracking-wider shadow-sm animate-pulse">
-        🔥 Special Offer: Free Delivery on Orders Above ₹999 + Extra 10% Off on Prepaid! 🔥
-    </div>
-
-    <!-- Main Header -->
-    <header class="bg-white shadow-sm border-b sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <div class="flex items-center space-x-3 w-full sm:w-auto justify-between">
-                <div class="flex items-center space-x-2">
-                    <div class="bg-rose-600 text-white font-black text-lg px-3 py-1.5 rounded-xl shadow">SGK</div>
-                    <div>
-                        <h1 class="text-lg font-black text-gray-900 tracking-tight">Shri Guru Kripa Fashion</h1>
-                        <p class="text-[10px] text-rose-600 font-bold uppercase tracking-wider">Direct Retail Store</p>
-                    </div>
-                </div>
-                <button onclick="scrollToCart()" class="sm:hidden bg-rose-50 border border-rose-300 px-3 py-1.5 rounded-full text-xs font-bold text-rose-700 flex items-center shadow-sm">
-                    🛒 Cart (<span id="mob-cart-count" class="ml-1 font-black">0</span>)
-                </button>
-            </div>
-
-            <!-- Live Search Bar -->
-            <div class="w-full sm:w-96">
-                <input type="text" id="search-input" onkeyup="filterProducts()" placeholder="🔍 Search suits, kurtis, kids wear..." class="w-full px-4 py-2 border rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-rose-500 bg-gray-50 shadow-inner">
-            </div>
-
-            <!-- Desktop Cart Button -->
-            <div class="hidden sm:block">
-                <button onclick="scrollToCart()" class="bg-rose-50 border border-rose-300 px-4 py-2 rounded-full text-sm font-bold text-rose-700 flex items-center shadow-sm hover:bg-rose-100 transition">
-                    🛒 Cart: <span id="cart-count" class="ml-1 text-rose-800 font-black">0</span>
-                </button>
-            </div>
-        </div>
+    <!-- Header -->
+    <header>
+        <h1>Shri Gurukripa Fashion Hub</h1>
+        <p>लेडीज़ स्पेशल डिज़ाइनर सूट, कुर्ती और गाउन कलेक्शन</p>
     </header>
 
-    <!-- Categories & Specific Product List Bar -->
-    <div class="bg-white border-b py-3 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
-            <!-- Main Category Filters -->
-            <div class="flex space-x-2 overflow-x-auto w-full md:w-auto pb-1 md:pb-0 no-scrollbar">
-                <button onclick="filterByCategory('All')" class="category-btn bg-rose-600 text-white text-xs font-bold px-4 py-2 rounded-full whitespace-nowrap shadow">All Collections</button>
-                <button onclick="filterByCategory('Women')" class="category-btn bg-gray-100 text-gray-700 text-xs font-bold px-4 py-2 rounded-full whitespace-nowrap hover:bg-gray-200 transition">Women's</button>
-                <button onclick="filterByCategory('Girls')" class="category-btn bg-gray-100 text-gray-700 text-xs font-bold px-4 py-2 rounded-full whitespace-nowrap hover:bg-gray-200 transition">Girls</button>
-                <button onclick="filterByCategory('Mens')" class="category-btn bg-gray-100 text-gray-700 text-xs font-bold px-4 py-2 rounded-full whitespace-nowrap hover:bg-gray-200 transition">Mens</button>
-                <button onclick="filterByCategory('Kids')" class="category-btn bg-gray-100 text-gray-700 text-xs font-bold px-4 py-2 rounded-full whitespace-nowrap hover:bg-gray-200 transition">Kids</button>
-            </div>
+    <!-- Navigation Menu -->
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            
+            <!-- BOYS MENU -->
+            <li>
+                <a href="#">BOYS & KIDS ▼</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">जीरो नंबर बच्चे के कपड़े</a></li>
+                    <li><a href="#">बच्चों के कुर्ते पजामे</a></li>
+                    <li><a href="#">बच्चों की जींस & टी-शर्ट्स</a></li>
+                    <li><a href="#">जैकेट सूट</a></li>
+                </ul>
+            </li>
 
-            <!-- Dropdown for Product Specific Name List -->
-            <div class="w-full md:w-auto">
-                <select id="product-list-dropdown" onchange="filterByDropdownProduct(this.value)" class="w-full md:w-64 px-3 py-2 border rounded-xl text-xs font-bold text-gray-700 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-rose-500 shadow-sm">
-                    <option value="All">📂 Select Specific Product Name...</option>
-                </select>
-            </div>
+            <!-- GIRLS MENU -->
+            <li>
+                <a href="#">GIRLS ▼</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">गुड़िया के लिए फ्रॉक</a></li>
+                    <li><a href="#">वेस्टर्न वेयर & ड्रेस</a></li>
+                    <li><a href="#">बड़ी गर्ल्स जींस, टॉप्स & स्कर्ट्स</a></li>
+                </ul>
+            </li>
+
+            <!-- MENS MENU -->
+            <li>
+                <a href="#">MENS ▼</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">जेंट्स सूट और कोट-पैंट</a></li>
+                    <li><a href="#">शेरवानी</a></li>
+                    <li><a href="#">वाइट & कलर कुर्ते पाजामे</a></li>
+                    <li><a href="#">मेंस जींस, शर्ट्स & टी-शर्ट्स</a></li>
+                </ul>
+            </li>
+
+            <!-- UPDATED WOMENS / LADIES MENU -->
+            <li>
+                <a href="#">WOMENS (LADIES) ▼</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">3 Piece Suits (थ्री पीस सूट)</a></li>
+                    <li><a href="#">2 Piece Suits (टू पीस सूट)</a></li>
+                    <li><a href="#">1 Piece Dress (वन पीस)</a></li>
+                    <li><a href="#">Cotton 3-Piece (कॉटन थ्री पीस)</a></li>
+                    <li><a href="#">Coat Set (कोट सेट)</a></li>
+                    <li><a href="#">Short Kurtis (शॉर्ट कुर्ती)</a></li>
+                    <li><a href="#">Long Kurtis (लॉन्ग कुर्ती)</a></li>
+                    <li><a href="#">Anarkali Suits/Kurtis (अनारकली)</a></li>
+                    <li><a href="#">Gowns (गाउन)</a></li>
+                    <li><a href="#">Fancy & Regular Wear (फैंसी और रेगुलर)</a></li>
+                </ul>
+            </li>
+
+            <!-- UNDERGARMENTS & STOLES -->
+            <li>
+                <a href="#">STOLE & INNERWEAR ▼</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Ladies Bra & Panty</a></li>
+                    <li><a href="#">Stylish Stoles & Dupattas</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="banner">
+            <h2>लेडीज़ फैशन कलेक्शन (Shri Gurukripa Fashion)</h2>
+            <p>ऊपर <b>WOMENS (LADIES)</b> मेनू पर माउस ले जाकर सभी 3-Piece, 2-Piece, अनारकली, कोट सेट, कॉटन सूट और गाउन की वैरायटी देखें।</p>
         </div>
     </div>
 
-    <!-- Main Content Layout -->
-    <main class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
-        
-        <!-- Products Grid Section -->
-        <div class="lg:col-span-2">
-            <div class="flex items-center justify-between mb-6 pb-2 border-b-2 border-gray-200">
-                <h2 class="text-xl font-black text-gray-900">Explore Catalog</h2>
-                <span id="loading-status" class="text-xs bg-rose-100 text-rose-700 px-3 py-1 rounded-full font-bold animate-pulse">Syncing Google Sheet...</span>
-            </div>
-
-            <!-- Dynamic Products Container -->
-            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <!-- Products load automatically from sheet -->
-            </div>
-        </div>
-
-        <!-- Cart & Checkout Panel -->
-        <div id="cart-section" class="bg-white rounded-2xl shadow-md border p-6 h-fit sticky top-24">
-            <h3 class="text-lg font-black text-gray-900 mb-4 border-b pb-2 flex items-center justify-between">
-                <span>Shopping Cart</span>
-                <span id="cart-badge" class="text-xs bg-rose-100 text-rose-700 px-2.5 py-1 rounded-full font-bold">0 Items</span>
-            </h3>
-            
-            <div id="cart-items-list" class="space-y-2 mb-4 text-sm text-gray-600 max-h-48 overflow-y-auto pr-1">
-                <p class="italic text-gray-400 text-center py-4">Your cart is empty.</p>
-            </div>
-
-            <div class="border-t pt-4 space-y-2 text-sm">
-                <div class="flex justify-between">
-                    <span class="text-gray-600 font-medium">Subtotal:</span>
-                    <span id="subtotal-val" class="font-bold text-gray-900">₹0</span>
-                </div>
-                <div class="flex justify-between">
-                    <span class="text-gray-600 font-medium">Delivery Charge:</span>
-                    <span id="delivery-val" class="font-bold text-gray-900">₹0</span>
-                </div>
-                <div class="flex justify-between text-lg border-t pt-2 font-black text-rose-600">
-                    <span>Total Amount:</span>
-                    <span id="total-val">₹0</span>
-                </div>
-            </div>
-
-            <!-- Customer Shipping Form & COD Option -->
-            <div class="mt-6 border-t pt-4">
-                <h4 class="font-bold text-gray-800 mb-3 text-xs uppercase tracking-wider">Delivery & Payment Details</h4>
-                <div class="space-y-3">
-                    <input type="text" id="cust-name" placeholder="Full Name" class="w-full px-3 py-2.5 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-rose-500">
-                    <input type="text" id="cust-phone" placeholder="Mobile Number" class="w-full px-3 py-2.5 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-rose-500">
-                    <textarea id="cust-address" placeholder="Complete Address, Landmark & Pincode" rows="2" class="w-full px-3 py-2.5 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-rose-500"></textarea>
-                    
-                    <div class="text-xs font-bold text-gray-700 flex items-center space-x-2 pt-1">
-                        <input type="checkbox" id="cod-check" checked class="rounded text-rose-600">
-                        <span>Cash on Delivery (COD) Available</span>
-                    </div>
-
-                    <button onclick="placeOrder()" class="w-full bg-emerald-600 text-white py-3 rounded-xl hover:bg-emerald-700 transition font-black text-sm shadow-md">
-                        Confirm & Place Order Now
-                    </button>
-                </div>
-            </div>
-
-            <!-- Success Box with Auto Order ID -->
-            <div id="order-success-msg" class="hidden mt-4 p-4 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-xl text-xs text-center font-medium shadow-sm">
-                🎉 <strong class="block text-sm mb-1">Order Confirmed Successfully!</strong>
-                Order ID: <span id="generated-order-id" class="font-black text-emerald-900 text-sm"></span><br>
-                <span class="text-[11px] text-gray-600 mt-1 block">Our delivery executive will bring your package soon.</span>
-            </div>
-        </div>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8 text-center text-xs mt-16">
-        <div class="max-w-7xl mx-auto px-4">
-            <p class="font-bold text-base mb-1">Shri Guru Kripa Fashion</p>
-            <p class="text-gray-500 text-xs">&copy; 2026 Shri Guru Kripa Fashion. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Automated Script Engine -->
-    <script>
-        const sheetApiUrl = "https://script.google.com/macros/s/AKfycbyE6kE-HZivuGbTOismfFukMSLMBVyF4k8GpKMcy8M7Xg3cCYQdZAvr93sbS5hFhqyFnw/exec";
-        let shoppingCart = [];
-        let fetchedProducts = [];
-
-        async function loadProducts() {
-            try {
-                let response = await fetch(sheetApiUrl);
-                let data = await response.json();
-                fetchedProducts = data;
-                renderProducts(data);
-                populateProductDropdown(data);
-                document.getElementById('loading-status').innerText = 'Live Auto Sync Active ✅';
-                document.getElementById('loading-status').className = 'text-xs bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full font-bold';
-            } catch (error) {
-                document.getElementById('loading-status').innerText = 'Connection Error';
-                document.getElementById('loading-status').className = 'text-xs bg-red-100 text-red-800 px-3 py-1 rounded-full font-bold';
-            }
-        }
-
-        function renderProducts(products) {
-            let gridHtml = '';
-            if(!products || products.length === 0) {
-                gridHtml = '<p class="text-gray-500 col-span-2 text-center py-8">No products found matching your filter.</p>';
-            } else {
-                products.forEach((item, index) => {
-                    let itemName = item.name || item.Name || item["item name"] || item["Item Name"] || 'Item';
-                    let itemCategory = item.category || item.Category || 'Collection';
-                    let itemSize = item.size || item.Size || 'Standard';
-                    let itemPrice = Number(item.price || item.Price || item["selling price"] || item["Selling Price"] || 0);
-                    let itemImg = item.image || item.Image || item.img || '';
-
-                    let mediaContent = itemImg ? `<img src="${itemImg}" alt="${itemName}" class="w-full h-full object-cover rounded-xl hover:scale-105 transition duration-300">` : `🛍️️ ${itemName}`;
-
-                    gridHtml += `
-                        <div class="bg-white rounded-2xl shadow-sm hover:shadow-lg transition border p-4 flex flex-col justify-between">
-                            <div>
-                                <div class="h-52 bg-rose-50 rounded-xl flex items-center justify-center text-rose-600 font-bold mb-3 border border-rose-100 overflow-hidden relative shadow-inner">
-                                    ${mediaContent}
-                                </div>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-[10px] bg-rose-50 text-rose-600 px-2.5 py-1 rounded-full font-black uppercase tracking-wider">${itemCategory}</span>
-                                    <span class="text-xs text-emerald-600 font-bold">In Stock</span>
-                                </div>
-                                <h3 class="text-base font-bold text-gray-900 mt-2">${itemName}</h3>
-                                <p class="text-xs text-gray-500 mt-0.5">Available Size: <strong class="text-gray-700">${itemSize}</strong></p>
-                                <p class="text-xl font-black text-gray-900 mt-2">₹${itemPrice}</p>
-                            </div>
-                            <button onclick="addToCartByData('${itemName}', ${itemPrice}, '${itemSize}')" class="w-full mt-5 bg-rose-600 text-white py-2.5 rounded-xl hover:bg-rose-700 transition font-bold text-sm shadow">
-                                Add to Cart
-                            </button>
-                        </div>
-                    `;
-                });
-            }
-            document.getElementById('products-grid').innerHTML = gridHtml;
-        }
-
-        function populateProductDropdown(products) {
-            let dropdown = document.getElementById('product-list-dropdown');
-            let optionsHtml = '<option value="All">📂 Select Specific Product Name...</option>';
-            
-            products.forEach(item => {
-                let itemName = item.name || item.Name || item["item name"] || item["Item Name"] || 'Item';
-                optionsHtml += `<option value="${itemName}">${itemName}</option>`;
-            });
-            dropdown.innerHTML = optionsHtml;
-        }
-
-        function filterByCategory(category) {
-            document.querySelectorAll('.category-btn').forEach(btn => {
-                if(btn.innerText.toLowerCase().includes(category.toLowerCase()) || (category === 'All' && btn.innerText.includes('All'))) {
-                    btn.className = 'category-btn bg-rose-600 text-white text-xs font-bold px-4 py-2 rounded-full whitespace-nowrap shadow';
-                } else {
-                    btn.className = 'category-btn bg-gray-100 text-gray-700 text-xs font-bold px-4 py-2 rounded-full whitespace-nowrap hover:bg-gray-200 transition';
-                }
-            });
-
-            if(category === 'All') {
-                renderProducts(fetchedProducts);
-            } else {
-                let filtered = fetchedProducts.filter(item => {
-                    let cat = item.category || item.Category || '';
-                    return cat.toLowerCase().includes(category.toLowerCase());
-                });
-                renderProducts(filtered);
-            }
-        }
-
-        function filterByDropdownProduct(productName) {
-            if(productName === 'All') {
-                renderProducts(fetchedProducts);
-            } else {
-                let filtered = fetchedProducts.filter(item => {
-                    let name = item.name || item.Name || item["item name"] || item["Item Name"] || '';
-                    return name === productName;
-                });
-                renderProducts(filtered);
-            }
-        }
-
-        function filterProducts() {
-            let query = document.getElementById('search-input').value.toLowerCase();
-            let filtered = fetchedProducts.filter(item => {
-                let name = (item.name || item.Name || item["item name"] || item["Item Name"] || '').toLowerCase();
-                let cat = (item.category || item.Category || '').toLowerCase();
-                return name.includes(query) || cat.includes(query);
-            });
-            renderProducts(filtered);
-        }
-
-        function addToCartByData(pName, pPrice, pSize) {
-            shoppingCart.push({name: pName, price: pPrice, size: pSize});
-            updateCartUI();
-        }
-
-        function updateCartUI() {
-            document.getElementById('cart-count').innerText = shoppingCart.length;
-            document.getElementById('mob-cart-count').innerText = shoppingCart.length;
-            document.getElementById('cart-badge').innerText = shoppingCart.length + ' Items';
-            
-            let container = document.getElementById('cart-items-list');
-            if(shoppingCart.length === 0) {
-                container.innerHTML = '<p class="italic text-gray-400 text-center py-4">Your cart is empty.</p>';
-                document.getElementById('subtotal-val').innerText = '₹0';
-                document.getElementById('delivery-val').innerText = '₹0';
-                document.getElementById('total-val').innerText = '₹0';
-                return;
-            }
-
-            let htmlStr = '';
-            let subSum = 0;
-            shoppingCart.forEach((item, index) => {
-                subSum += item.price;
-                htmlStr += `
-                    <div class="flex justify-between items-center bg-gray-50 p-2.5 rounded-xl text-xs border">
-                        <div>
-                            <span class="font-bold text-gray-800 block">${item.name}</span>
-                            <span class="text-[10px] text-gray-500">Size: ${item.size}</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <span class="font-bold text-gray-900">₹${item.price}</span>
-                            <button onclick="removeCartItem(${index})" class="text-red-500 font-bold px-1.5 py-0.5 hover:bg-red-50 rounded text-xs">✕</button>
-                        </div>
-                    </div>
-                `;
-            });
-
-            container.innerHTML = htmlStr;
-            let deliveryFee = subSum > 999 ? 0 : 99;
-            let finalTotal = subSum + deliveryFee;
-
-            document.getElementById('subtotal-val').innerText = '₹' + subSum;
-            document.getElementById('delivery-val').innerText = deliveryFee === 0 ? 'FREE' : '₹' + deliveryFee;
-            document.getElementById('total-val').innerText = '₹' + finalTotal;
-        }
-
-        function removeCartItem(index) {
-            shoppingCart.splice(index, 1);
-            updateCartUI();
-        }
-
-        function scrollToCart() {
-            document.getElementById('cart-section').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function placeOrder() {
-            let name = document.getElementById('cust-name').value;
-            let phone = document.getElementById('cust-phone').value;
-            let address = document.getElementById('cust-address').value;
-
-            if(shoppingCart.length === 0) {
-                alert('Please add items to your cart first!');
-                return;
-            }
-            if(!name || !phone || !address) {
-                alert('Please fill in your complete delivery details!');
-                return;
-            }
-
-            let randomOrderId = 'SGK-' + Math.floor(100000 + Math.random() * 900000);
-            document.getElementById('generated-order-id').innerText = randomOrderId;
-            document.getElementById('order-success-msg').classList.remove('hidden');
-        }
-
-        loadProducts();
-    </script>
 </body>
 </html>
