@@ -100,7 +100,7 @@
 
     <!-- Script to Fetch Data from Google Sheet and Handle Cart -->
     <script>
-        const sheetApiUrl = "https://script.google.com/macros/s/AKfycbxdGchJKMaNG8z3nLGOP8Su17ieZR_vmv4jiUOwGzJqFsd2pkLHzlClzsca5VQrTIZ5IA/exec";
+        const sheetApiUrl = "https://script.google.com/macros/s/AKfycbyE6kE-HZivuGbTOismfFukMSLMBVyF4k8GpKMcy8M7Xg3cCYQdZAvr93sbS5hFhqyFnw/exec";
         let shoppingBag = [];
         let fetchedProducts = [];
 
@@ -115,16 +115,21 @@
                     gridHtml = '<p class="text-gray-500 col-span-2">No products found in Google Sheet.</p>';
                 } else {
                     data.forEach((item, index) => {
+                        let itemName = item.name || item.Name || 'Product';
+                        let itemCategory = item.category || item.Category || 'Garments';
+                        let itemPrice = item.price || item.Price || 0;
+                        let itemSize = item.size || item.Size || 'Standard';
+
                         gridHtml += `
                             <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition overflow-hidden border p-4 flex flex-col justify-between">
                                 <div>
                                     <div class="h-48 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400 font-medium mb-3 border">
-                                        [ ${item.name || 'Product'} ]
+                                        [ ${itemName} ]
                                     </div>
-                                    <span class="text-xs text-rose-600 font-bold uppercase tracking-wider">${item.category || 'Garments'}</span>
-                                    <h3 class="text-lg font-bold text-gray-900 mt-1">${item.name}</h3>
-                                    <p class="text-xs text-gray-500 mt-1">Size: ${item.size || 'Standard'}</p>
-                                    <p class="text-base font-extrabold text-gray-900 mt-3">₹${item.price}</p>
+                                    <span class="text-xs text-rose-600 font-bold uppercase tracking-wider">${itemCategory}</span>
+                                    <h3 class="text-lg font-bold text-gray-900 mt-1">${itemName}</h3>
+                                    <p class="text-xs text-gray-500 mt-1">Size: ${itemSize}</p>
+                                    <p class="text-base font-extrabold text-gray-900 mt-3">₹${itemPrice}</p>
                                 </div>
                                 <button onclick="addItem(${index})" class="w-full mt-4 bg-gray-900 text-white py-2.5 rounded-lg hover:bg-gray-800 transition text-sm font-semibold shadow">
                                     Add to Bag
@@ -143,7 +148,11 @@
 
         function addItem(index) {
             let prod = fetchedProducts[index];
-            shoppingBag.push({name: prod.name, price: Number(prod.price), size: prod.size});
+            let pName = prod.name || prod.Name || 'Product';
+            let pPrice = Number(prod.price || prod.Price || 0);
+            let pSize = prod.size || prod.Size || '';
+
+            shoppingBag.push({name: pName, price: pPrice, size: pSize});
             renderCart();
         }
 
