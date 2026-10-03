@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shri Gurukripa Fashion Hub</title>
+    <title>Shri Gurukripa Fashion</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
         body { background-color: #f9f9f9; color: #333; }
@@ -111,22 +111,52 @@
             max-width: 1200px;
             margin: 30px auto;
             padding: 0 20px;
-            text-align: center;
         }
-        .welcome-box {
+        .section-title {
+            font-size: 20px;
+            color: #222;
+            margin-bottom: 20px;
+            border-left: 4px solid #ff416c;
+            padding-left: 10px;
+        }
+        
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+        .product-card {
             background: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            border: 1px solid #eee;
         }
-        .welcome-box h2 {
-            color: #ff416c;
-            margin-bottom: 10px;
-            font-size: 26px;
+        .product-img {
+            width: 100%;
+            height: 200px;
+            background-color: #f1f1f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-size: 13px;
         }
-        .welcome-box p {
-            color: #666;
+        .product-info {
+            padding: 15px;
+        }
+        .product-name {
             font-size: 15px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .product-category-tag {
+            font-size: 12px;
+            color: #ff416c;
+            margin-bottom: 8px;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -147,7 +177,7 @@
         </div>
     </header>
 
-    <!-- Navigation Menu (Only GIRL & WOMAN Categories as requested) -->
+    <!-- Navigation Menu -->
     <nav>
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
@@ -194,11 +224,42 @@
         </ul>
     </nav>
 
-    <!-- Page Body Area -->
+    <!-- Catalog Section Based on User Data -->
     <div class="container">
-        <div class="welcome-box">
-            <h2>Shri Gurukripa Fashion में आपका स्वागत है</h2>
-            <p>ऊपर दिए गए <b>GIRL</b> और <b>WOMAN</b> मेनू पर क्लिक करके आप अपनी सभी चुनिंदा कैटेगरीज और प्रोडक्ट्स देख सकते हैं।</p>
+        <h2 class="section-title">Featured Categories & Products</h2>
+        
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-img">[Product Photo Here]</div>
+                <div class="product-info">
+                    <div class="product-category-tag">WOMAN - 3-पीस सूट</div>
+                    <div class="product-name">Designer 3-Piece Suit</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img">[Product Photo Here]</div>
+                <div class="product-info">
+                    <div class="product-category-tag">WOMAN - अनारकली सूट्स</div>
+                    <div class="product-name">Georgette Anarkali Suit</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img">[Product Photo Here]</div>
+                <div class="product-info">
+                    <div class="product-category-tag">WOMAN - नायरा कट</div>
+                    <div class="product-name">Nayra Cut Suit</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img">[Product Photo Here]</div>
+                <div class="product-info">
+                    <div class="product-category-tag">GIRL - शॉर्ट टॉप / वन पीस</div>
+                    <div class="product-name">Girl's Fancy Short Top</div>
+                </div>
+            </div>
         </div>
     </div>
 
