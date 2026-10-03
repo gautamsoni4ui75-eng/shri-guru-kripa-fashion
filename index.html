@@ -5,48 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shri Gurukripa Fashion Hub</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-        body {
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        /* Top Header & Logo */
-        header {
-            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+        body { background-color: #f9f9f9; color: #333; }
+
+        /* Announcement Bar */
+        .announcement-bar {
+            background-color: #ff416c;
             color: white;
-            padding: 20px;
+            text-align: center;
+            padding: 8px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        /* Header & Logo */
+        header {
+            background: #fff;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 1px solid #eee;
             flex-wrap: wrap;
         }
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .logo-box {
-            background: white;
-            color: #ff416c;
-            padding: 10px 15px;
-            font-weight: bold;
-            font-size: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        .header-text h1 {
+        .logo-brand {
             font-size: 24px;
-            margin-bottom: 3px;
-        }
-        .header-text p {
-            font-size: 13px;
+            font-weight: bold;
+            color: #ff416c;
+            text-decoration: none;
             letter-spacing: 1px;
         }
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #444;
+        }
+        .header-icons span {
+            cursor: pointer;
+        }
+
         /* Navigation Bar */
         nav {
             background-color: #222;
@@ -68,7 +67,7 @@
         .nav-links li a {
             display: block;
             color: white;
-            padding: 15px 18px;
+            padding: 14px 20px;
             text-decoration: none;
             font-weight: bold;
             font-size: 14px;
@@ -77,6 +76,7 @@
         .nav-links li a:hover {
             background-color: #ff416c;
         }
+
         /* Dropdown Menu */
         .dropdown-menu {
             display: none;
@@ -85,288 +85,120 @@
             top: 100%;
             background-color: #fff;
             box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-            min-width: 230px;
+            min-width: 250px;
             z-index: 1;
             list-style: none;
+            max-height: 350px;
+            overflow-y: auto;
         }
         .dropdown-menu li a {
             color: #333;
-            padding: 12px 16px;
-            border-bottom: 1px solid #eee;
+            padding: 10px 15px;
+            border-bottom: 1px solid #f1f1f1;
             font-weight: normal;
+            font-size: 13px;
         }
         .dropdown-menu li a:hover {
-            background-color: #f1f1f1;
+            background-color: #fff0f3;
             color: #ff416c;
         }
         .nav-links li:hover .dropdown-menu {
             display: block;
         }
-        /* Main Catalog Section */
+
+        /* Main Content Section */
         .container {
             max-width: 1200px;
             margin: 30px auto;
             padding: 0 20px;
-        }
-        .section-title {
-            font-size: 22px;
-            color: #222;
-            margin-bottom: 20px;
-            border-left: 5px solid #ff416c;
-            padding-left: 10px;
-        }
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-        }
-        .product-card {
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-            transition: 0.3s;
-        }
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-        }
-        .product-img {
-            width: 100%;
-            height: 220px;
-            background-color: #e0e0e0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #777;
-            font-size: 14px;
-            position: relative;
-        }
-        .badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: #ff416c;
-            color: white;
-            padding: 4px 8px;
-            font-size: 11px;
-            border-radius: 4px;
-        }
-        .product-details {
-            padding: 15px;
-        }
-        .product-title {
-            font-size: 16px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 8px;
-        }
-        .product-price {
-            font-size: 18px;
-            color: #ff416c;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .product-options {
-            font-size: 13px;
-            color: #666;
-            margin-bottom: 15px;
-        }
-        .btn-group {
-            display: flex;
-            gap: 10px;
-        }
-        .btn {
-            flex: 1;
-            padding: 10px;
             text-align: center;
-            border: none;
-            border-radius: 4px;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 13px;
-            text-decoration: none;
         }
-        .btn-cart {
-            background-color: #222;
-            color: white;
+        .welcome-box {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-        .btn-cart:hover {
-            background-color: #444;
+        .welcome-box h2 {
+            color: #ff416c;
+            margin-bottom: 10px;
+            font-size: 26px;
         }
-        .btn-buy {
-            background-color: #ff416c;
-            color: white;
-        }
-        .btn-buy:hover {
-            background-color: #e0325b;
+        .welcome-box p {
+            color: #666;
+            font-size: 15px;
         }
     </style>
 </head>
 <body>
 
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        🎉 मुफ्त डिलीवरी (Free Shipping) उपलब्ध! | WhatsApp आर्डर के लिए संपर्क करें।
+    </div>
+
     <!-- Header & Logo -->
     <header>
-        <div class="logo-area">
-            <div class="logo-box">SG</div>
-            <div class="header-text">
-                <h1>Shri Gurukripa Fashion Hub</h1>
-                <p>रेडीमेड गारमेंट्स, लेडीज़ सूट, कुर्ती, गाउन और किड्स वेयर</p>
-            </div>
+        <a href="#" class="logo-brand">Shri Gurukripa Fashion</a>
+        <div class="header-icons">
+            <span>🔍 Search</span>
+            <span>❤️ Wishlist</span>
+            <span>🛍️ Cart (0)</span>
         </div>
     </header>
 
-    <!-- Navigation Menu -->
+    <!-- Navigation Menu (Only GIRL & WOMAN Categories as requested) -->
     <nav>
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
             
-            <!-- BOYS & KIDS -->
+            <!-- GIRL -->
             <li>
-                <a href="#">BOYS & KIDS ▼</a>
+                <a href="#">GIRL ▼</a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">जीरो नंबर बच्चे के कपड़े</a></li>
-                    <li><a href="#">बच्चों के कुर्ते पजामे</a></li>
-                    <li><a href="#">बच्चों की जींस & टी-शर्ट्स</a></li>
-                    <li><a href="#">जैकेट सूट</a></li>
+                    <li><a href="#">शर्ट (Shirt)</a></li>
+                    <li><a href="#">टी-शर्ट्स (T-Shirts)</a></li>
+                    <li><a href="#">टॉप (Top)</a></li>
+                    <li><a href="#">लेगिंग्स (Leggings)</a></li>
+                    <li><a href="#">प्लाजो (Plazo)</a></li>
+                    <li><a href="#">शॉर्ट टॉप (Short Top)</a></li>
+                    <li><a href="#">वन पीस (One Piece)</a></li>
                 </ul>
             </li>
 
-            <!-- GIRLS -->
+            <!-- WOMAN -->
             <li>
-                <a href="#">GIRLS ▼</a>
+                <a href="#">WOMAN ▼</a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">गुड़िया के लिए फ्रॉक</a></li>
-                    <li><a href="#">वेस्टर्न वेयर & ड्रेस</a></li>
-                    <li><a href="#">बड़ी गर्ल्स जींस, टॉप्स & स्कर्ट्स</a></li>
+                    <li><a href="#">लॉन्ग कट कुर्ती (Long Cut Kurti)</a></li>
+                    <li><a href="#">फैंसी टॉप (Fancy Top)</a></li>
+                    <li><a href="#">2-पीस सूट (2-Pieces Suit)</a></li>
+                    <li><a href="#">3-पीस सूट (3-Pieces Suit)</a></li>
+                    <li><a href="#">कोट सेट (Coat Set)</a></li>
+                    <li><a href="#">जंपसूट (Jumpsuit)</a></li>
+                    <li><a href="#">फैंसी पार्टी वेयर सूट्स (Fancy Party Wear Suits)</a></li>
+                    <li><a href="#">कॉटन सूट्स (Cotton Suits)</a></li>
+                    <li><a href="#">डिजाइनर सूट्स (Designer Suits)</a></li>
+                    <li><a href="#">जॉर्जेट अनारकली सूट्स (Georgette Anarkali Suits)</a></li>
+                    <li><a href="#">चंदेरी सिल्क सूट्स (Chanderi Silk Suits)</a></li>
+                    <li><a href="#">जॉर्जेट-ऑरगेंजा (Georgette Organza)</a></li>
+                    <li><a href="#">शरारा-गरारा सूट्स (Sharara Garara Suits)</a></li>
+                    <li><a href="#">प्लाजो सूट्स (Plazo Suits)</a></li>
+                    <li><a href="#">पटियाला सूट्स (Patiala Suits)</a></li>
+                    <li><a href="#">नायरा कट (Nayra Cut)</a></li>
                 </ul>
             </li>
 
-            <!-- MENS -->
-            <li>
-                <a href="#">MENS ▼</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">जेंट्स सूट और कोट-पैंट</a></li>
-                    <li><a href="#">शेरवानी</a></li>
-                    <li><a href="#">वाइट & कलर कुर्ते पाजामे</a></li>
-                    <li><a href="#">मेंस जींस, शर्ट्स & टी-शर्ट्स</a></li>
-                </ul>
-            </li>
-
-            <!-- WOMENS (LADIES) -->
-            <li>
-                <a href="#">WOMENS (LADIES) ▼</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">3 Piece Suits (थ्री पीस सूट)</a></li>
-                    <li><a href="#">2 Piece Suits (टू पीस सूट)</a></li>
-                    <li><a href="#">1 Piece Dress (वन पीस)</a></li>
-                    <li><a href="#">Cotton 3-Piece (कॉटन थ्री पीस)</a></li>
-                    <li><a href="#">Coat Set (कोट सेट)</a></li>
-                    <li><a href="#">Short Kurtis (शॉर्ट कुर्ती)</a></li>
-                    <li><a href="#">Long Kurtis (लॉन्ग कुर्ती)</a></li>
-                    <li><a href="#">Anarkali Suits/Kurtis (अनारकली)</a></li>
-                    <li><a href="#">Gowns (गाउन)</a></li>
-                    <li><a href="#">Fancy & Regular Wear (फैंसी और रेगुलर)</a></li>
-                </ul>
-            </li>
-
-            <!-- STOLE & INNERWEAR -->
-            <li>
-                <a href="#">STOLE & INNERWEAR ▼</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Ladies Bra & Panty</a></li>
-                    <li><a href="#">Stylish Stoles & Dupattas</a></li>
-                </ul>
-            </li>
+            <li><a href="#">NEW ARRIVALS</a></li>
+            <li><a href="#">SALE</a></li>
         </ul>
     </nav>
 
-    <!-- Main Content & Product Catalog -->
+    <!-- Page Body Area -->
     <div class="container">
-        <h2 class="section-title">लेटेस्ट डिज़ाइनर कैटलॉग (Featured Products)</h2>
-        
-        <div class="product-grid">
-            
-            <!-- Product 1 -->
-            <div class="product-card">
-                <div class="product-img">
-                    <span class="badge">Trending</span>
-                    [Product Photo / Video Here]
-                </div>
-                <div class="product-details">
-                    <div class="product-title">Designer Cotton 3-Piece Suit</div>
-                    <div class="product-price">₹ 1,299</div>
-                    <div class="product-options">
-                        <b>Sizes:</b> M, L, XL, XXL <br>
-                        <b>Colors:</b> Red, Blue, Pink
-                    </div>
-                    <div class="btn-group">
-                        <button class="btn btn-cart">Add to Cart</button>
-                        <button class="btn btn-buy">Buy Now</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 2 -->
-            <div class="product-card">
-                <div class="product-img">
-                    <span class="badge">New</span>
-                    [Product Photo / Video Here]
-                </div>
-                <div class="product-details">
-                    <div class="product-title">Anarkali Party Wear Kurti</div>
-                    <div class="product-price">₹ 999</div>
-                    <div class="product-options">
-                        <b>Sizes:</b> Free Size (M to XXL) <br>
-                        <b>Colors:</b> Bottle Green, Maroon
-                    </div>
-                    <div class="btn-group">
-                        <button class="btn btn-cart">Add to Cart</button>
-                        <button class="btn btn-buy">Buy Now</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="product-card">
-                <div class="product-img">
-                    <span class="badge">Special</span>
-                    [Product Photo / Video Here]
-                </div>
-                <div class="product-details">
-                    <div class="product-title">Stylish Coat Set for Women</div>
-                    <div class="product-price">₹ 1,499</div>
-                    <div class="product-options">
-                        <b>Sizes:</b> S, M, L, XL <br>
-                        <b>Colors:</b> Black, Beige, Grey
-                    </div>
-                    <div class="btn-group">
-                        <button class="btn btn-cart">Add to Cart</button>
-                        <button class="btn btn-buy">Buy Now</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 4 -->
-            <div class="product-card">
-                <div class="product-img">
-                    <span class="badge">Kids</span>
-                    [Product Photo / Video Here]
-                </div>
-                <div class="product-details">
-                    <div class="product-title">Baby Girls Western Frock</div>
-                    <div class="product-price">₹ 699</div>
-                    <div class="product-options">
-                        <b>Sizes:</b> 2-3 Years, 4-5 Years <br>
-                        <b>Colors:</b> Yellow, Sky Blue
-                    </div>
-                    <div class="btn-group">
-                        <button class="btn btn-cart">Add to Cart</button>
-                        <button class="btn btn-buy">Buy Now</button>
-                    </div>
-                </div>
-            </div>
-
+        <div class="welcome-box">
+            <h2>Shri Gurukripa Fashion में आपका स्वागत है</h2>
+            <p>ऊपर दिए गए <b>GIRL</b> और <b>WOMAN</b> मेनू पर क्लिक करके आप अपनी सभी चुनिंदा कैटेगरीज और प्रोडक्ट्स देख सकते हैं।</p>
         </div>
     </div>
 
